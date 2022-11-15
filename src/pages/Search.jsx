@@ -20,6 +20,8 @@ const Search = () => {
 
   if(isFetching) return <Loader title={`Searching ${searchTerm}...`}/>
 
+
+  
   if(error) return <Error />
 
 
