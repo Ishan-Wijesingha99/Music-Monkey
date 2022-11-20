@@ -25,9 +25,9 @@ export const SongCard = ({ song, isPlaying, activeSong, i, data }) => {
 
 
   return (
-    <div className="relative group m-4 bg-[#4c426e] p-2 rounded-lg cursor-pointer hover:scale-105 duration-200">
+    <div className="relative group m-4 bg-[#a56d6d] p-1 rounded-lg cursor-pointer hover:scale-105 duration-200">
 
-      <div className={`absolute inset-0 justify-center items-center bg-black bg-opacity-50 group-hover:flex ${activeSong?.title === song.title ? 'flex bg-black bg-opacity-70' : 'hidden'}`}>
+      <div className={`absolute inset-0 justify-center items-center bg-black bg-opacity-50 group-hover:flex rounded-lg ${activeSong?.title === song.title ? 'flex bg-black bg-opacity-70' : 'hidden'}`}>
 
         <PlayPause
         isPlaying={isPlaying}

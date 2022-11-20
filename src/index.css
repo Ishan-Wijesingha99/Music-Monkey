@@ -7,6 +7,17 @@
 
 
 body {
-  background-image: linear-gradient(#b85f5f, 
-  #9d5555);
+  background-image: linear-gradient(to right, #292828, 
+  #2c2b2b);
+}
+
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }

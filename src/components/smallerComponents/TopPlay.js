@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const TopChartCard = ({ song, i }) => {
   return (
-    <div className="w-full flex flex-row items-center hover:bg-[#4c426e] py-2 p-4 rounded-lg cursor-pointer mb-2 justify-center items-center">
+    <div className="w-full flex flex-row items-center hover:bg-[#292828] py-2 p-4 rounded-lg cursor-pointer mb-2 justify-center items-center">
       <h3 className="font-bold text-base text-white mr-3">{i + 1}</h3>
 
       <div className="flex-1 flex flew-row justify-between items-center">
@@ -47,7 +47,7 @@ export const TopPlay = () => {
  
 
   return (
-    <div className="w-[400px] m-4 self-start bg-gradient-to-t from-red-300 to-rose-400 rounded-lg">
+    <div className="w-[400px] m-4 self-start bg-gradient-to-r from-[#a56d6d] rounded-lg">
 
       <h2 className='font-bold text-3xl text-white text-center w-[300px]'>Top Play Section</h2>
 
