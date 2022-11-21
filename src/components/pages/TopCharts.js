@@ -1,11 +1,12 @@
 import React from "react";
+import { Error } from '../smallerComponents/Error'
 
 
 
 export const TopCharts = () => {
   return (
     <div>
-      Top Charts
+      
     </div>
   )
 }
