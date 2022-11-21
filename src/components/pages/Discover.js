@@ -5,6 +5,9 @@ import { useGetSongsByGenreQuery } from "../../redux/services/shazamCore";
 
 import { SongCard } from "../smallerComponents/SongCard";
 
+import { Error } from '../smallerComponents/Error'
+import { LoaderAnimation } from  '../smallerComponents/LoaderAnimation'
+
 
 
 export const Discover = () => {
@@ -16,7 +19,10 @@ export const Discover = () => {
 
 
 
-  console.log(data)
+  if(isFetching) return <LoaderAnimation title="Loading songs..." />
+
+  if(error) return <Error />
+
 
   return (
     <div className="flex flex-col m-8">
