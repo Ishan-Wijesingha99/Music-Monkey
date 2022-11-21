@@ -21,7 +21,7 @@ export const Discover = () => {
   return (
     <div className="flex flex-col m-8">
 
-    <h2 className='font-bold text-3xl text-white text-left'>Discover</h2>
+    <h2 className='font-signature tracking-widest text-3xl text-white text-left'>Discover</h2>
 
       <div className='flex flex-wrap sm:justify-start justify-center items-center text-center'>
 

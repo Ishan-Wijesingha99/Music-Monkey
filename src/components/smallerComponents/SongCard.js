@@ -7,6 +7,8 @@ import PlayPause from './PlayPause'
 
 import { playPause, setActiveSong } from "../../redux/features/playerSlice";
 
+import { Link } from "react-router-dom";
+
 
 
 export const SongCard = ({ song, isPlaying, activeSong, i, data }) => {
@@ -42,8 +44,26 @@ export const SongCard = ({ song, isPlaying, activeSong, i, data }) => {
       <img
       src={song.images?.coverart}
       alt=""
-      className="w-[200px] duration-200 rounded-lg"
+      className="w-[180px] duration-200 rounded-lg"
       />
+
+
+
+      <div className='mt-4 flex flex-col'>
+
+        <p className='font-semibold text-lg text-white truncate'>
+          <Link to={`/songs/${song?.key}`}>
+            { song.title.length > 16 ? song.title.slice(0, 16).concat('...') : song.title }
+          </Link>
+        </p>
+
+        <p className='text-sm truncate text-gray-300 mt-1'>
+          <Link to={song.artists ? `/artists/${song?.artists[0]?.adamid}` : '/top-artists'}>
+          { song.subtitle.length > 24 ? song.subtitle.slice(0, 24).concat('...') : song.subtitle }
+          </Link>
+        </p>
+
+      </div>
 
     </div>
   )

@@ -11,10 +11,10 @@ export const Sidebar = () => {
   
   return (
     <div
-    className="w-[300px] self-start bg-gradient-to-r from-[#a56d6d] flex flex-col items-center px-16 m-4 rounded-lg pb-8"
+    className="w-[300px] self-start bg-gradient-to-r from-[#a56d6d] flex flex-col m-4 rounded-lg pb-8"
     >
-      <div className="flex flex-row items-center justify-center p-4">
-        <h1 className="font-bold text-base text-white text-4xl mr-2 mb-4">Music Monkey</h1>
+      <div className="flex flex-row items-center justify-center py-4">
+        <h1 className="font-signature text-base text-white text-2xl tracking-widest mr-2">MUSIC MONKEY</h1>
 
         <img
         src={monkeyLogo}
@@ -26,28 +26,28 @@ export const Sidebar = () => {
 
       <Link
       to="/"
-      className="hover:bg-[#b85f5f] mb-4 text-xl font-bold text-white"
+      className="hover:bg-gradient-to-r hover:from-[#292828] text-2xl font-signature text-white p-4 rounded-lg tracking-widest ml-4"
       >
         Discover
       </Link>
 
       <Link
       to="/around-you"
-      className="hover:bg-[#b85f5f] mb-4 text-xl font-bold text-white"
+      className="hover:bg-gradient-to-r hover:from-[#292828] text-2xl font-signature text-white p-4 rounded-lg tracking-widest ml-4"
       >
         Around You
       </Link>
 
       <Link
       to="/top-artists"
-      className="hover:bg-[#b85f5f] mb-4 text-xl font-bold text-white"
+      className="hover:bg-gradient-to-r hover:from-[#292828] text-2xl font-signature text-white p-4 rounded-lg tracking-widest ml-4"
       >
         Top Artists
       </Link>
 
       <Link
       to="/top-charts"
-      className="hover:bg-[#b85f5f] mb-4 text-xl font-bold text-white"
+      className="hover:bg-gradient-to-r hover:from-[#292828] text-2xl font-signature text-white p-4 rounded-lg tracking-widest ml-4"
       >
         Top Charts
       </Link>

@@ -19,6 +19,7 @@ export const App = () => {
 
   const { activeSong } = useSelector(state => state.player)
 
+  
 
   return (
     <div className="relative flex">
@@ -30,7 +31,7 @@ export const App = () => {
       <div className="flex-1 flex flex-col">
         <Searchbar />
 
-        <div className="px-6 h-[calc(100vh-72px)] overflow-y-scroll scrollbar-hide flex xl:flex-row flex-col-reverse">
+        <div className="px-2 h-[calc(100vh-72px)] overflow-y-scroll scrollbar-hide flex xl:flex-row flex-col-reverse">
           <div className="flex-1 h-fit pb-40">
             <Routes>
               <Route path="/" element={<Discover />} />
@@ -46,6 +47,8 @@ export const App = () => {
           </div>
 
         </div>
+
+
 
       </div>
 
