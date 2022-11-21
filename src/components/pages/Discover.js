@@ -15,7 +15,7 @@ export const Discover = () => {
   const dispatch = useDispatch()
   const { activeSong, isPlaying, genreListId } = useSelector((state) => state.player)
 
-  const { data, isFetching, error } = useGetSongsByGenreQuery('POP')
+  const { data, isFetching, error } = useGetSongsByGenreQuery('ROCK')
 
 
 
