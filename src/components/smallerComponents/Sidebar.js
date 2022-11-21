@@ -5,9 +5,14 @@ import { Link } from "react-router-dom";
 
 import monkeyLogo from '../../assets/logo.png'
 
+import { useSelector } from "react-redux";
+
 
 
 export const Sidebar = () => {
+
+  const { isActive, isPlaying } = useSelector(state => state.player)
+
   
   return (
     <div
@@ -19,7 +24,7 @@ export const Sidebar = () => {
         <img
         src={monkeyLogo}
         alt="monkey logo"
-        className="w-[50px] ml-2"
+        className={`w-[50px] ml-2 ${isPlaying && isActive ? 'animate-[spin_3s_linear_infinite]' : ''}`}
         />
       </div>
 

@@ -1,11 +1,21 @@
 import React from "react";
+import { useEffect } from "react";
+
+import { useSelector, useDispatch } from "react-redux";
+
+import PlayPause from "./PlayPause";
+
+import { playPause, setActiveSong } from "../../redux/features/playerSlice";
+
 import { useGetTopChartsQuery } from "../../redux/services/shazamCore";
+
 import { Link } from "react-router-dom";
 
 
 
 
-const TopChartCard = ({ song, i }) => {
+
+const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handlePlayClick }) => {
   return (
     <div className="w-full flex flex-row items-center hover:bg-gradient-to-r hover:from-[#292828] py-2 p-4 rounded-lg cursor-pointer justify-center items-center">
       <h3 className="font-bold text-base text-white mr-3">{i + 1}</h3>
@@ -33,6 +43,15 @@ const TopChartCard = ({ song, i }) => {
           </Link>
         </div>
       </div>
+
+      <PlayPause
+        isPlaying={isPlaying}
+        activeSong={activeSong}
+        song={song}
+        handlePause={handlePauseClick}
+        handlePlay={handlePlayClick}
+      />
+
     </div>
   )
 }
@@ -47,13 +66,29 @@ export const TopPlay = () => {
 
   const { data } = useGetTopChartsQuery()
 
-  console.log(data)
+  const dispatch = useDispatch()
+
+  const { activeSong, isPlaying } = useSelector(state => state.player)
 
   const topFivePlays = data?.slice(0, 5)
  
 
+
+  const handlePauseClick = () => {
+    dispatch(playPause(false))
+  }
+
+  const handlePlayClick = (song, i) => {
+    dispatch(setActiveSong({ song, data, i }))
+    dispatch(playPause(true))
+  }
+
+
+
   return (
-    <div className="w-[400px] pl-4 pt-8 pb-4 m-4 self-start bg-gradient-to-r from-[#a56d6d] rounded-lg">
+    <div
+    className="w-[400px] pl-4 pt-8 pb-4 m-4 self-start bg-gradient-to-r from-[#a56d6d] rounded-lg"
+    >
 
       <h2 className='text-3xl text-white text-center w-[300px] font-signature tracking-widest'>TOP PLAY SECTION</h2>
 
@@ -62,15 +97,24 @@ export const TopPlay = () => {
         {topFivePlays?.map((song, i) => {
           return (
             <TopChartCard
-            song={song}
-            i={i}
+              key={song.key}
+              song={song}
+              i={i}
+              isPlaying={isPlaying}
+              activeSong={activeSong}
+              handlePauseClick={handlePauseClick}
+              handlePlayClick={() => handlePlayClick(song, i)}
             />
           )
         })}
 
       </div>
 
-
+      <Link
+      to="/top-charts"
+      >
+        <p className="text-white text-lg font-signature tracking-widest cursor-pointer mt-4 hover:bg-gradient-to-r hover:from-[#292828] pl-4 rounded-lg">See more...</p>
+      </Link>
 
     </div>
   )
