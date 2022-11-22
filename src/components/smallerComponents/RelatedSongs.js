@@ -2,7 +2,7 @@ import Songbar from './SongBar'
 
 
 
-export const RelatedSongs = ({ data, isPlaying, activeSong, handlePauseClick, handlePlayClick, artistId }) => {
+export const RelatedSongs = ({ data, isPlaying, activeSong, artistId }) => {
 
   return (
     <div className='flex flex-col mt-16'>
@@ -19,8 +19,6 @@ export const RelatedSongs = ({ data, isPlaying, activeSong, handlePauseClick, ha
           artistId={artistId}
           isPlaying={isPlaying}
           activeSong={activeSong}
-          handlePauseClick={handlePauseClick}
-          handlePlayClick={handlePlayClick}
           />
         ))}
 

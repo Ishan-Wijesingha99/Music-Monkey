@@ -8,7 +8,7 @@ const SongBar = ({ song, i, artistId, isPlaying, activeSong, handlePauseClick, h
 
   return (
     <div
-    className={`w-full flex flex-row items-center hover:bg-[#a56d6d] py-2 p-4 rounded-lg cursor-pointer mb-2 bg-gradient-to-r from-[#a56d6d]`}
+    className={`w-full flex flex-row items-center py-2 p-4 rounded-lg cursor-pointer mb-2 bg-gradient-to-r from-[#a56d6d]`}
     >
 
       <h3 className="font-bold text-base text-white mr-3">{i + 1}.</h3>
@@ -48,6 +48,8 @@ const SongBar = ({ song, i, artistId, isPlaying, activeSong, handlePauseClick, h
         </div>
 
       </div>
+
+
 
       {
 

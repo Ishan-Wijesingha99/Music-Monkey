@@ -43,8 +43,8 @@ export const SongCard = ({ song, isPlaying, activeSong, i, data }) => {
 
       <img
       src={song.images?.coverart}
-      alt=""
-      className="w-[180px] duration-200 rounded-lg"
+      alt="song"
+      className="w-[172px] h-[172px] duration-200 rounded-lg"
       />
 
 
