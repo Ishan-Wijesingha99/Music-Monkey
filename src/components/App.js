@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 
 import MusicPlayer from "./musicPlayer";
 import Searchbar from "../components/smallerComponents/SearchBar"
+import { ArtistDetails } from "./pages/ArtistDetails";
 
 
 
@@ -38,6 +39,7 @@ export const App = () => {
               <Route path="/top-artists" element={<TopArtists />} />
               <Route path="/top-charts" element={<TopCharts />} />
               <Route path="/around-you" element={<AroundYou />} />
+              <Route path="/artists/:id" element={<ArtistDetails />} />
             </Routes>
           </div>
 
