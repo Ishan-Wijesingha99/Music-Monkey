@@ -43,7 +43,7 @@ export const AroundYou = () => {
   return (
     <div className="flex flex-col mt-16">
 
-      <h2 className='font-signature tracking-widest text-3xl text-white text-left'>
+      <h2 className='font-signature tracking-widest text-4xl text-white text-left'>
         Around You - {country}
       </h2>
 

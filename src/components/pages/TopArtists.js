@@ -20,7 +20,7 @@ export const TopArtists = () => {
   return (
     <div className="flex flex-col mt-16">
 
-    <h2 className='font-signature tracking-widest text-3xl text-white text-left'>Top Artists</h2>
+    <h2 className='font-signature tracking-widest text-4xl text-white text-left'>Top Artists</h2>
 
       <div className="flex flex-wrap sm:justify-start justify-center items-center text-center mt-16">
 
