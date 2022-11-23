@@ -29,7 +29,7 @@ export const Searchbar = () => {
     <form
       onSubmit={handleSubmit}
       autoComplete="off"
-      className="p-2 text-[#292828] focus-within:text-[#292828] bg-gradient-to-r from-[#a56d6d] rounded-lg mt-4"
+      className="p-2 text-[#292828] focus-within:text-[#292828] bg-gradient-to-r from-[#a56d6d] rounded-lg mt-4 mr-6"
     >
     
       <label htmlFor="search-field" className="sr-only">

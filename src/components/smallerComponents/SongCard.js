@@ -56,13 +56,13 @@ export const SongCard = ({ song, isPlaying, activeSong, i, data }) => {
 
       <div className='mt-4 flex flex-col'>
 
-        <p className='font-semibold text-lg text-white truncate'>
+        <p className='font-semibold text-lg text-white truncate hover:underline'>
           <Link to={`/songs/${song?.key}`}>
             {song.title}
           </Link>
         </p>
 
-        <p className='text-sm truncate text-gray-300 mt-1'>
+        <p className='text-sm truncate text-gray-300 mt-1 hover:underline'>
           <Link to={song.artists ? `/artists/${song?.artists[0]?.adamid}` : '/top-artists'}>
             {song.subtitle}
           </Link>

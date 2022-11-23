@@ -28,7 +28,7 @@ const SongBar = ({ song, i, artistId, isPlaying, activeSong, handlePauseClick, h
           ? 
           (
             <Link to={`/songs/${song.key}`}>
-              <p className="text-xl font-bold text-white">
+              <p className="text-xl font-bold text-white hover:underline">
                 {song?.title}
               </p>
             </Link>

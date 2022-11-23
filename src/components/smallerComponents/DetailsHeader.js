@@ -29,7 +29,7 @@ export const DetailsHeader = ({ artistId, artistData, songData }) => {
 
           {!artistId && (
             <Link to={`/artists/${songData?.artists[0].adamid}`}>
-              <p className='text-base text-gray-400 mt-2'>{songData?.subtitle}</p>
+              <p className='text-base text-gray-400 mt-2 hover:underline'>{songData?.subtitle}</p>
             </Link>
           )}
 

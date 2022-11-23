@@ -29,16 +29,16 @@ const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handle
 
         <div className="flex-1 flex flex-col justify-center mx-3">
           <Link to={`/songs/${song.key}`}>
-            <p className="text-md font-bold text-white">
+            <p className="text-md font-bold text-white hover:underline">
               {/* {song?.title} */}
-              { song?.title.length > 24 ? song?.title.slice(0, 24).concat('...') : song?.title }
+              { song?.title.length > 22 ? song?.title.slice(0, 22).concat('...') : song?.title }
             </p>
           </Link>
 
           <Link to={`/artists/${song?.artists[0].adamid}`}>
-            <p className="text-base text-gray-300 mt-1">
+            <p className="text-base text-gray-300 mt-1 hover:underline">
               {/* {song?.subtitle} */}
-              { song?.subtitle.length > 24 ? song?.subtitle.slice(0, 24).concat('...') : song?.subtitle }
+              { song?.subtitle.length > 22 ? song?.subtitle.slice(0, 22).concat('...') : song?.subtitle }
             </p>
           </Link>
         </div>
@@ -87,7 +87,7 @@ export const TopPlay = () => {
 
   return (
     <div
-    className="w-[400px] pl-4 pt-8 pb-4 m-4 self-start bg-gradient-to-r from-[#a56d6d] rounded-lg"
+    className="w-[380px] pl-4 pt-6 pb-4 m-4 self-start bg-gradient-to-r from-[#a56d6d] rounded-lg"
     >
 
       <h2 className='text-3xl text-white text-center w-[300px] font-signature tracking-widest'>TOP PLAY SECTION</h2>
