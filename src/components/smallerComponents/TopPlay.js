@@ -90,7 +90,7 @@ export const TopPlay = () => {
     className="w-[380px] pl-4 pt-6 pb-4 m-4 self-start bg-gradient-to-r from-[#a56d6d] rounded-lg"
     >
 
-      <h2 className='text-3xl text-white text-center w-[300px] font-signature tracking-widest'>TOP PLAY SECTION</h2>
+      <h2 className='text-2xl text-white text-center w-[300px] font-signature tracking-widest'>TOP PLAY SECTION</h2>
 
       <div className="mt-4 flex flex-col gap-1">
 
@@ -113,7 +113,7 @@ export const TopPlay = () => {
       <Link
       to="/top-charts"
       >
-        <p className="text-white text-lg font-signature tracking-widest cursor-pointer mt-4 hover:bg-gradient-to-r hover:from-[#292828] pl-4 rounded-lg">See more...</p>
+        <p className="text-white text-md font-signature tracking-widest cursor-pointer mt-4 hover:bg-gradient-to-r hover:from-[#292828] pl-4 rounded-lg">See more...</p>
       </Link>
 
     </div>
