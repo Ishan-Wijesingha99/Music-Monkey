@@ -24,7 +24,7 @@ const SongBar = ({ song, i, artistId, isPlaying, activeSong, handlePauseClick, h
         <div className="flex-1 flex flex-col justify-center mx-3">
 
           {
-          !artistId 
+            !artistId 
           ? 
           (
             <Link to={`/songs/${song.key}`}>
