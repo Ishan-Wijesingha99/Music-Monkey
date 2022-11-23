@@ -7,12 +7,16 @@ import { TopArtists } from "./pages/TopArtists";
 import { TopCharts } from "./pages/TopCharts";
 import { AroundYou } from "./pages/AroundYou";
 import { TopPlay } from "./smallerComponents/TopPlay";
+import { ArtistDetails } from "./pages/ArtistDetails";
+import { SongDetails } from "./pages/SongDetails";
+import { Search } from "./pages/Search";
+
+
 import { useSelector } from "react-redux";
 
 import MusicPlayer from "./musicPlayer";
-import Searchbar from "../components/smallerComponents/SearchBar"
-import { ArtistDetails } from "./pages/ArtistDetails";
-import { SongDetails } from "./pages/SongDetails";
+import { Searchbar } from "../components/smallerComponents/SearchBar"
+
 
 
 
@@ -42,6 +46,7 @@ export const App = () => {
               <Route path="/around-you" element={<AroundYou />} />
               <Route path="/artists/:id" element={<ArtistDetails />} />
               <Route path="/songs/:songid" element={<SongDetails />} />
+              <Route path="/search/:searchTerm" element={<Search />} />
             </Routes>
           </div>
 
