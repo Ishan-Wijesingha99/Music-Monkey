@@ -24,6 +24,12 @@ export const ArtistDetails = () => {
 
   const { data: artistData, isFetching, error } = useGetArtistDetailsQuery(artistId)
 
+  console.log(artistData)
+
+
+
+  console.log(artistData?.data[0]?.views['top-songs']?.data)
+
 
 
   if(isFetching) return <LoaderAnimation title="Loading artist details..."/>
@@ -41,7 +47,8 @@ export const ArtistDetails = () => {
       />
 
       <RelatedSongs 
-        data={Object.values(artistData?.songs)}
+        // data={Object.values(artistData?.songs)}
+        data={artistData?.data[0]?.views['top-songs']?.data}
         artistId={artistId}
         isPlaying={isPlaying}
         activeSong={activeSong}
