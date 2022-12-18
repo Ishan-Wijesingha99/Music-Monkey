@@ -5,15 +5,12 @@ import { useParams } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 
-
 import { useGetArtistDetailsQuery } from "../../redux/services/shazamCore";
 
 import { LoaderAnimation } from "../smallerComponents/LoaderAnimation";
 import { Error } from "../smallerComponents/Error";
 import { DetailsHeader } from "../smallerComponents/DetailsHeader";
 import { RelatedSongs } from '../smallerComponents/RelatedSongs'
-
-
 
 
 

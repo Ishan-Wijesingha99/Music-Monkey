@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 
 export const DetailsHeader = ({ artistId, artistData, songData }) => {
 
-  const artistExtractedData = artistData?.artists[artistId]?.attributes
+  const artistExtractedData = artistData?.data[0]?.attributes
 
-
+  console.log(artistExtractedData)
 
   return (
     <div className='relative w-full flex flex-col'>
@@ -45,8 +45,6 @@ export const DetailsHeader = ({ artistId, artistData, songData }) => {
         </div>
 
       </div>
-
-      
 
     </div>
   )

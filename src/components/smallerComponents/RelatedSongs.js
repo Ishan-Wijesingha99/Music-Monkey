@@ -13,7 +13,7 @@ export const RelatedSongs = ({ data, isPlaying, activeSong, artistId }) => {
 
         {data?.map((song, i) => (
           <Songbar
-          key={`${song.key}-${artistId}`}
+          key={`${i}-${artistId}`}
           song={song}
           i={i}
           artistId={artistId}
