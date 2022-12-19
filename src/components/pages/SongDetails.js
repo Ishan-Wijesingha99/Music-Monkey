@@ -15,6 +15,9 @@ import { useGetSongDetailsQuery, useGetSongRelatedQuery } from "../../redux/serv
 
 
 export const SongDetails = () => {
+  
+  let dataWithNoBugs = []
+
   const dispatch = useDispatch()
 
   const { songid } = useParams()
@@ -22,7 +25,16 @@ export const SongDetails = () => {
   const { activeSong, isPlaying } = useSelector(state => state.player)
 
   const { data: songData, isFetching: isFetchingSongDetails } = useGetSongDetailsQuery({ songid })
+
   const { data, isFetching: isFetchingRelatedSongs, error } = useGetSongRelatedQuery({ songid })
+
+  if(data) {
+    data.forEach(song => {
+      if(song?.images?.coverart && song?.title && song?.key && song?.subtitle) {
+        dataWithNoBugs.push(song)
+      }
+    })
+  }
 
 
 
@@ -31,6 +43,8 @@ export const SongDetails = () => {
   }
 
   const handlePlayClick = (song, i) => {
+    const data = dataWithNoBugs
+
     dispatch(setActiveSong({ song, data, i }))
     dispatch(playPause(true))
   }
@@ -77,7 +91,7 @@ export const SongDetails = () => {
       </div>
 
       <RelatedSongs 
-        data={data}
+        data={dataWithNoBugs}
         isPlaying={isPlaying}
         activeSong={activeSong}
         handlePauseClick={handlePauseClick}

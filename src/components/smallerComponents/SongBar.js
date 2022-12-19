@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 
 import PlayPause from './PlayPause';
 
-const SongBar = ({ song, i, artistId, isPlaying, activeSong, handlePauseClick, handlePlayClick }) => {
 
+
+const SongBar = ({ song, i, artistId, isPlaying, activeSong, handlePauseClick, handlePlayClick }) => {
 
   return (
     <div
@@ -48,7 +49,6 @@ const SongBar = ({ song, i, artistId, isPlaying, activeSong, handlePauseClick, h
         </div>
 
       </div>
-
 
     </div>
   )

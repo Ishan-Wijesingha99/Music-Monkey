@@ -15,19 +15,25 @@ import { RelatedSongs } from '../smallerComponents/RelatedSongs'
 
 
 export const ArtistDetails = () => {
+  let artistDataWithNoBugs = []
+
   const { id: artistId } = useParams()
 
   const { activeSong, isPlaying } = useSelector(state => state.player)
 
   const { data: artistData, isFetching, error } = useGetArtistDetailsQuery(artistId)
 
-  console.log(artistData)
+  if(artistData) {
+    const arrayOfRelatedSongs = artistData?.data[0]?.views['top-songs']?.data
 
+    arrayOfRelatedSongs.forEach(song => {
+      if(song?.attributes?.artwork?.url && song?.attributes?.name && song?.attributes?.albumName) {
+        artistDataWithNoBugs.push(song)
+      }
+    })
+  }
 
-
-  console.log(artistData?.data[0]?.views['top-songs']?.data)
-
-
+  
 
   if(isFetching) return <LoaderAnimation title="Loading artist details..."/>
   
@@ -44,8 +50,7 @@ export const ArtistDetails = () => {
       />
 
       <RelatedSongs 
-        // data={Object.values(artistData?.songs)}
-        data={artistData?.data[0]?.views['top-songs']?.data}
+        data={artistDataWithNoBugs}
         artistId={artistId}
         isPlaying={isPlaying}
         activeSong={activeSong}
