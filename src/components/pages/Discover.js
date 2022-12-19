@@ -33,16 +33,25 @@ const genres = [
 
 export const Discover = () => {
 
+  let dataWithNoBugs = []
+
   const dispatch = useDispatch()
   const { activeSong, isPlaying, genreListId } = useSelector((state) => state.player)
 
   const { data, isFetching, error } = useGetSongsByGenreQuery(genreListId || 'POP')
 
-
+  if(data) {
+    data.forEach(song => {
+      if(song?.key && song?.title && song.images?.coverart && song?.artists && song?.artists[0]?.adamid && song?.subtitle) {
+        dataWithNoBugs.push(song)
+      }
+    })
+  }
 
   if(isFetching) return <LoaderAnimation title="Loading songs..." />
 
   if(error) return <Error />
+
 
 
   const genreTitle = genres.find(({ value }) => value === genreListId)?.title
@@ -85,14 +94,14 @@ export const Discover = () => {
 
       <div className='flex flex-wrap sm:justify-start justify-center items-center text-center mt-16'>
 
-        {data?.map((song, i) => (
+        {dataWithNoBugs?.map((song, i) => (
           <SongCard
           key={song.key}
           song={song}
           i={i}
           isPlaying={isPlaying}
           activeSong={activeSong}
-          data={data}
+          data={dataWithNoBugs}
           />
         ))} 
 

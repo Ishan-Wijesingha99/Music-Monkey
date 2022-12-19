@@ -61,6 +61,8 @@ export const TopPlay = () => {
 
   let topFivePlays
 
+  let topPlaysWithNoBugs = []
+
   const { data } = useGetTopChartsQuery()
 
   const dispatch = useDispatch()
@@ -68,10 +70,6 @@ export const TopPlay = () => {
   const { activeSong, isPlaying } = useSelector(state => state.player)
 
   if(data) {
-    // extract all the tops plays, this could be 10 or 20 songs
-    const allTopPlays = data
-
-    let topPlaysWithNoBugs = []
 
     // loop through all the song objects in allTopPlays, only if all of these properties of the song object exist, then push it into topPlaysWithNoBugs
     data.forEach(song => {
@@ -91,6 +89,8 @@ export const TopPlay = () => {
   }
 
   const handlePlayClick = (song, i) => {
+    const data = topPlaysWithNoBugs
+
     dispatch(setActiveSong({ song, data, i }))
     dispatch(playPause(true))
   }

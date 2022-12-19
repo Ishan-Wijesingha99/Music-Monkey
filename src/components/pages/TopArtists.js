@@ -10,12 +10,25 @@ import { useGetTopChartsQuery } from '../../redux/services/shazamCore'
 
 export const TopArtists = () => {
 
+  let dataWithNoBugs = []
+
   const { data, isFetching, error } = useGetTopChartsQuery()
+
+  if(data) {
+    data.forEach(track => {
+      if(track?.key && track?.artists && track?.images?.coverart && track?.subtitle) {
+        dataWithNoBugs.push(track)
+      }
+    })
+  }
+
 
 
   if(isFetching) return <LoaderAnimation title="Loading top artists" />
 
   if(error) return <Error />
+
+
 
   return (
     <div className="flex flex-col mt-16">
@@ -24,7 +37,7 @@ export const TopArtists = () => {
 
       <div className="flex flex-wrap sm:justify-start justify-center items-center text-center mt-16">
 
-        {data?.map(track => (
+        {dataWithNoBugs?.map(track => (
 
           <ArtistCard 
           key={track.key}

@@ -13,12 +13,23 @@ import { SongCard } from "../smallerComponents/SongCard";
 
 
 export const AroundYou = () => {
+
+  let dataWithNoBugs = []
+
   const [country, setCountry] = useState('')
   const [loading, setLoading] = useState(true)
 
   const { activeSong, isPlaying } = useSelector(state => state.player)
 
   const { data, isFetching, error } = useGetSongsByCountryQuery(country)
+
+  if(data) {
+    data.forEach(song => {
+      if(song?.key && song?.title && song.images?.coverart && song?.artists && song?.artists[0]?.adamid && song?.subtitle) {
+        dataWithNoBugs.push(song)
+      }
+    })
+  }
 
 
 
@@ -49,14 +60,14 @@ export const AroundYou = () => {
 
       <div className='flex flex-wrap sm:justify-start justify-center items-center text-center mt-16'>
 
-        {data?.map((song, i) => (
+        {dataWithNoBugs?.map((song, i) => (
           <SongCard
           key={song.key}
           song={song}
           i={i}
           isPlaying={isPlaying}
           activeSong={activeSong}
-          data={data}
+          data={dataWithNoBugs}
           />
         ))} 
 
