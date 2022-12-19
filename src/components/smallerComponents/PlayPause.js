@@ -10,7 +10,7 @@ const PlayPause = ({ isPlaying, activeSong, song, handlePause, handlePlay }) => 
 
       {
 
-        isPlaying && (activeSong?.title === song.title) 
+        isPlaying && (activeSong?.key === song.key) 
 
         ? 
 
