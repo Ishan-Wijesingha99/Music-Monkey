@@ -7,10 +7,12 @@ const Track = ({ isPlaying, isActive, activeSong }) => (
     </div>
     <div className="w-[50%]">
       <p className="truncate text-white font-bold text-lg">
-        {activeSong?.title ? activeSong?.title : 'No active Song'}
+        {/* {activeSong?.title ? activeSong?.title : 'No active Song'} */}
+        { activeSong?.title.length > 22 ? activeSong?.title.slice(0, 22).concat('...') : activeSong?.title }
       </p>
       <p className="truncate text-gray-300">
-        {activeSong?.subtitle ? activeSong?.subtitle : 'No active Song'}
+        {/* {activeSong?.subtitle ? activeSong?.subtitle : 'No active Song'} */}
+        { activeSong?.subtitle.length > 22 ? activeSong?.subtitle.slice(0, 22).concat('...') : activeSong?.subtitle }
       </p>
     </div>
   </div>
