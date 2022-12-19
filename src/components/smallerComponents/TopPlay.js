@@ -13,9 +13,10 @@ import { Link } from "react-router-dom";
 
 
 
-
-
 const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handlePlayClick }) => {
+
+
+
   return (
     <div className="w-full flex flex-row items-center hover:bg-gradient-to-r hover:from-[#292828] py-2 p-4 rounded-lg cursor-pointer justify-center items-center">
       <h3 className="font-bold text-base text-white mr-3">{i + 1}</h3>
@@ -30,14 +31,12 @@ const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handle
         <div className="flex-1 flex flex-col justify-center mx-3">
           <Link to={`/songs/${song.key}`}>
             <p className="text-md font-bold text-white hover:underline">
-              {/* {song?.title} */}
               { song?.title.length > 22 ? song?.title.slice(0, 22).concat('...') : song?.title }
             </p>
           </Link>
 
           <Link to={`/artists/${song?.artists[0].adamid}`}>
             <p className="text-base text-gray-300 mt-1 hover:underline">
-              {/* {song?.subtitle} */}
               { song?.subtitle.length > 22 ? song?.subtitle.slice(0, 22).concat('...') : song?.subtitle }
             </p>
           </Link>
@@ -58,11 +57,9 @@ const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handle
 
 
 
-
-
-
-
 export const TopPlay = () => {
+
+  let topFivePlays
 
   const { data } = useGetTopChartsQuery()
 
@@ -70,7 +67,22 @@ export const TopPlay = () => {
 
   const { activeSong, isPlaying } = useSelector(state => state.player)
 
-  const topFivePlays = data?.slice(0, 5)
+  if(data) {
+    // extract all the tops plays, this could be 10 or 20 songs
+    const allTopPlays = data
+
+    let topPlaysWithNoBugs = []
+
+    // loop through all the song objects in allTopPlays, only if all of these properties of the song object exist, then push it into topPlaysWithNoBugs
+    data.forEach(song => {
+      if(song?.images?.coverart && song?.title && song?.key && song?.artists && song?.artists[0].adamid && song?.subtitle) {
+        topPlaysWithNoBugs.push(song)
+      }
+    })
+
+    // extract out the top 5 of those topPlaysWithNoBugs
+    topFivePlays = topPlaysWithNoBugs.slice(0, 5)
+  }
  
 
 
